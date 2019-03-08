@@ -34,9 +34,3 @@
   raw:  sudo gitlab-runner start
   args:
     executable: /bin/bash
-
-- name: Register a Runner under GNU/Linux
-  tags: system
-  raw:  sudo gitlab-runner register
-  args:
-    executable: /bin/bash
