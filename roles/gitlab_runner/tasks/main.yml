@@ -1,2 +1,2 @@
 # file: roles/gitlab_runner/tasks/main.yml
-include: gitlab_runner.yml
+- include: gitlab_runner.yml
