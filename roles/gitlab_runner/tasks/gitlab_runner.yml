@@ -1,0 +1,37 @@
+# file: roles/gitlab_runner/tasks/gitlab_runner.yml
+- name: Download binaries for system
+  tags: system 
+  raw: sudo wget -O /usr/local/bin/gitlab-runner https://gitlab-runner-downloads.s3.amazonaws.com/latest/binaries/gitlab-runner-linux-amd64
+  args:
+    executable: /bin/bash
+
+- name: Give permissions for gitlab runner binaries to execute
+  tags: system 
+  raw: sudo chmod +x /usr/local/bin/gitlab-runner
+  args:
+    executable: /bin/bash
+
+- name: Install docker
+  tags: system
+  raw: curl -sSL https://get.docker.com/ | sh
+  args:
+    executable: /bin/bash
+
+- name: Create user for GitLab Runner
+  tags: system
+  raw: sudo useradd --comment 'GitLab Runner' --create-home gitlab-runner --shell /bin/bash
+  args:
+    executable: /bin/bash
+
+- name: Install gitlab-runner
+  tags: system
+  raw: sudo gitlab-runner install --user=gitlab-runner --working-directory=/home/gitlab-runner
+  args:
+    executable: /bin/bash
+
+- name: Install gitlab-runner
+  tags: system
+  raw:  sudo gitlab-runner start
+  args:
+    executable: /bin/bash
+

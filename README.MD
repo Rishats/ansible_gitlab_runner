@@ -35,7 +35,7 @@ Host variables control some of the aspects how the machine is configured. Store 
 1) git clone project.
 2) create file gitlab_runner in host_vars and paste data above.
 3) python3 -m venv env
-4) source /venv/bin/activate
+4) source env/bin/activate
 5) pip install -r requirements.txt
 6) ansible -i inventory/production servers -m ping
 7) ansible-playbook -i inventory site.yml
