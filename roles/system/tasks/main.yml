@@ -1,0 +1,6 @@
+# file: roles/system/tasks/main.yml
+- name: Upgrade all packages
+  apt: upgrade=full update_cache=yes
+  when: ansible_distribution == 'Ubuntu' or ansible_distribution == 'Debian'
+  
+- include: swap.yml

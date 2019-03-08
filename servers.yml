@@ -3,4 +3,5 @@
   become: true
   become_user: root
   roles:
+    - system
     - gitlab_runner
